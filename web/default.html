@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>XSFilterSvc</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit-icons.min.js"></script>
+</head>
+<body>
+    <div class="uk-container">
+        <h3 class="uk-margin-top">XSFilterSvc API測試</h3>
+        <hr/>
+        <ul class="uk-list uk-list-disc uk-list-divider">
+            <li><a class="uk-link-text" target="_blank" href='api/fields'>取得選股欄位清單</a></li>
+            <li><a class="uk-link-text" target="_blank" href='api/symboldata?symbol=2330.TW&freq=8&fields=外資買賣超;投信買賣超'>查詢2330(日):外資買賣超+投信買賣超</a></li>
+            <li><a class="uk-link-text" target="_blank" href='api/symboldata?symbol=2330.TW&freq=10&fields=月營收;月營收年增率'>查詢2330(月):月營收+月營收年增率</a></li>
+            <li><a class="uk-link-text" target="_blank" href='api/symboldata?symbol=2330.TW&freq=10&fields=3091;3093'>查詢2330(月):月營收(3091)+月營收年增率(3093)</a></li>
+            <li><a class="uk-link-text" target="_blank" href='api/symboldata?symbol=2330.TW&freq=14&fields=3173;3174;3175;3177;3181;3208;3209;3211;3218'>查詢2330(季):營收,成本,毛利,費用,利益,毛利率,利益率,稅後淨利率,每股EPS</a></li>
+            <li><a class="uk-link-text" target="_blank" href='api/symboldata?symbol=2330.TW&freq=16&fields=3173;3174;3175;3177;3181;3208;3209;3211;3218'>查詢2330(年):營收,成本,毛利,費用,利益,毛利率,利益率,稅後淨利率,每股EPS</a></li>
+        </ul>
+    </div>
+</body>
+</html>
