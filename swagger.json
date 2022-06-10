@@ -7,8 +7,12 @@
   },
   "servers": [
     {
+      "url": "http://203.67.19.129/xsfiltersvc/api",
+      "description": "Production server"
+    },
+    {
       "url": "http://localhost:8888/api",
-      "description": "Local server"
+      "description": "Local development server"
     }
   ],
   "paths": {
