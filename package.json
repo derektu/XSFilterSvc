@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --no-timeouts",
     "dev": "node lib/app.js",
-    "start" : "pm2 start ecosystem.config.js"
+    "start": "pm2 start ecosystem.config.js"
   },
   "author": "derektu123@gmail.com",
   "license": "ISC",
@@ -22,6 +22,7 @@
     "moment": "^2.29.3",
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.1",
+    "swagger-ui-express": "^4.4.0",
     "xmldom": "^0.6.0"
   }
 }

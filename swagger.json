@@ -1,0 +1,160 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "XSFilterSvc API",
+    "description": "提供XS選股欄位相關資訊",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8888/api",
+      "description": "Local server"
+    }
+  ],
+  "paths": {
+    "/fields" : {
+      "get": {
+        "summary": "回傳所有選股欄位",
+        "description": "回傳所有選股欄位",
+        "responses": {
+          "200": {
+            "description": "回傳所有選股欄位",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Field"
+                  }
+                }
+              }  
+            }
+          }
+        }
+      }
+    },
+    "/symboldata" : {
+      "get": {
+        "summary": "查詢商品的欄位數值",
+        "description": "查詢商品的欄位數值",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "description": "商品代碼",
+            "required": true,
+            "type": "string",
+            "example": "2330.TW"
+          },
+          {
+            "name": "freq",
+            "in": "query",
+            "description": "欲查詢的頻率, 日=8,週=9,月=10,季=14,年=16",
+            "required": true,
+            "type": "string",
+            "example": "8"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "欲查詢的欄位名稱或是代碼, 可以傳入多個頻率, 使用分號分隔",
+            "required": true,
+            "type": "string",
+            "example": "外資買賣超;投信買賣超"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "欲查詢的筆數",
+            "required": false,
+            "type": "integer",
+            "example": 20
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "回傳欄位的資料",
+            "content" : {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SymbolData"
+                } 
+              }   
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SymbolData": {
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "example": "2330.TW"
+          },
+          "freq": {
+            "type": "string",
+            "example": "8"
+          },
+          "records": {
+            "type": "array",
+            "items" : {
+              "properties" : {
+                "date": {
+                  "type": "string",
+                  "example": "20210101",
+                  "description": "格式為yyyymmdd, for月資料, 日期會是當月的第一個交易日, 例如20220102, 20220201, for季資料, 日期固定是3/6/9/12的1日, 例如 20210301, 20210601, for 年資料, 日期固定是12月1日, 例如20211201"
+                },
+                "欄位名稱": {
+                  "type": "string",
+                  "example": "12345",
+                  "description": "同傳入的欄位名稱或是代碼, 數值為字串, 如果是''表示沒有數值"
+                }  
+              }
+            }
+          }
+        }  
+      },
+      "Field": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "S0103023"
+          },
+          "name": {
+            "type": "string",
+            "description": "欄位名稱",
+            "example": "外資買賣超"
+          },
+          "taid": {
+            "type": "string",
+            "description": "欄位代碼",
+            "example": "3054"
+          },
+          "unit": {
+            "type": "string",
+            "description": "單位(文字描述)",
+            "example": "張"
+          },
+          "markets": {
+            "type": "array",
+            "items" : {
+              "properties" : {
+                "market": {
+                  "type": "string",
+                  "example": "TW"
+                },
+                "freq": {
+                  "type": "string",
+                  "example": "8;9;10"
+                }  
+              }
+            }
+          }
+        }
+      }
+    }
+  }  
+}
