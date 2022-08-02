@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha --no-timeouts",
-    "dev": "node lib/app.js",
-    "start": "pm2 start ecosystem.config.js"
+    "dev": "node lib/app.js"
   },
   "author": "derektu123@gmail.com",
   "license": "ISC",

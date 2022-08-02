@@ -2,6 +2,13 @@
 
 提供XS選股服務的欄位資料查詢功能.
 
+## Installation
+
+$ npm install
+$ npm run dev       # for local development, port=8888
+$ pm2 start local.config.js         # for local development test for pm2
+$ pm2 start server.config.js        # 如果是在203.67.19.129, 則使用這一個來deploy pm2
+
 ## API
 
 ### 查詢欄位相關資訊 

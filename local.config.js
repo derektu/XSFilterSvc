@@ -1,9 +1,10 @@
+// For local development
 module.exports = {
     apps : [
         {
             name   : "xsfiltersvc",
             script : "./lib/app.js",
-            args : "",
+            args : "--port=8888 --xsdocdb=http://203.67.19.129/xsdocdb --xsservice=http://203.67.19.129/xsserviceuat",
             watch : true,
             ignore_watch : [ "node_modules", "logs" ]    
         },
