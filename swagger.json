@@ -88,6 +88,34 @@
           }
         }
       }
+    },
+    "/symbollist" : {
+      "get": {
+        "summary": "查詢商品清單",
+        "description": "查詢商品清單",
+        "parameters": [
+          {
+            "name": "exch",
+            "in": "query",
+            "description": "交易所編號",
+            "required": true,
+            "type": "string",
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "回傳商品清單資料",
+            "content" : {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SymbolList"
+                } 
+              }   
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -156,6 +184,20 @@
                 }  
               }
             }
+          }
+        }
+      },
+      "SymbolList": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "商品代碼",
+            "example": "1101.TW"
+          },
+          "name": {
+            "type": "string",
+            "description": "商品名稱",
+            "example": "台泥"
           }
         }
       }
