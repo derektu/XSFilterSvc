@@ -109,14 +109,17 @@
             "content" : {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SymbolList"
-                } 
-              }   
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Symbol"
+                  }
+                }
+              }
             }
           }
         }
       }
-    }
+    }  
   },
   "components": {
     "schemas": {
@@ -160,6 +163,13 @@
             "description": "欄位名稱",
             "example": "外資買賣超"
           },
+          "aliases": {
+            "type": "array",
+            "items" : {
+              "type": "string"
+            },
+            "description": "其他名稱" 
+          },
           "taid": {
             "type": "string",
             "description": "欄位代碼",
@@ -187,7 +197,7 @@
           }
         }
       },
-      "SymbolList": {
+      "Symbol": {
         "properties": {
           "id": {
             "type": "string",
