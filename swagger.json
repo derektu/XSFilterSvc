@@ -61,18 +61,26 @@
           {
             "name": "fields",
             "in": "query",
-            "description": "欲查詢的欄位名稱或是代碼, 可以傳入多個頻率, 使用分號分隔",
+            "description": "欲查詢的欄位代碼, 可以傳入多個頻率, 使用分號分隔",
             "required": true,
             "type": "string",
-            "example": "外資買賣超;投信買賣超"
+            "example": "3054;3055"
           },
           {
-            "name": "count",
+            "name": "startdate",
             "in": "query",
-            "description": "欲查詢的筆數",
+            "description": "查詢區間起點,格式為yyyyMMdd, 例如20200101, 預設是今年第一天",
             "required": false,
             "type": "integer",
-            "example": 20
+            "example": 20200101
+          },
+          {
+            "name": "enddate",
+            "in": "query",
+            "description": "查詢區間終點,格式為yyyyMMdd, 例如20200101, 預設是今天",
+            "required": false,
+            "type": "integer",
+            "example": 20200101
           }
         ],
         "responses": {
@@ -145,7 +153,7 @@
                 "欄位名稱": {
                   "type": "string",
                   "example": "12345",
-                  "description": "同傳入的欄位名稱或是代碼, 數值為字串, 如果是''表示沒有數值"
+                  "description": "同傳入的代碼, 數值為字串, 如果是''表示沒有數值"
                 }  
               }
             }
