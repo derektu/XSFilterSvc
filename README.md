@@ -4,10 +4,12 @@
 
 ## Installation
 
+```
 $ npm install
 $ npm run dev       # for local development, port=8888
 $ pm2 start local.config.js         # for local development test for pm2
 $ pm2 start server.config.js        # 如果是在203.67.19.129, 則使用這一個來deploy pm2
+```
 
 ## API
 
@@ -42,15 +44,16 @@ http://<server>/api/fields
 ### 查詢欄位歷史資料
 
 ```
-http://<server>/api/symboldata?symbol=<商品代碼>&freq=<頻率>&fields=<欄位代碼>&count=N
+http://<server>/api/symboldata?symbol=<商品代碼>&freq=<頻率>&fields=<欄位代碼>,<欄位代碼>&startdate=yyyyMMdd&enddate=yyyyMMdd
 ```
 
 查詢某檔商品/某個頻率的欄位資料:
 
 - symbol: 傳入商品代碼, 例如"2330.TW",
 - freq: 查詢的頻率, 例如8(日), 9(週), 10(月), 14(季), 16(年)
-- fields: 欲查詢的欄位, 請傳入欄位的名稱或是taid, 可以傳入多個(使用;分隔)
-- count: 最新N筆, 如果不傳的話預設回傳20筆
+- fields: 欲查詢的欄位, 請傳入欄位的taid, 可以傳入多個(使用;分隔)
+- startdate: 查詢日期起點, 如果不傳的話預設是今年的第一天
+- enddate: 查詢日期終點, 如果不傳的話預設是今天
 
 回傳以下格式:
 
